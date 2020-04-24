@@ -1,0 +1,1 @@
+I am glad to be part of Azubi
