@@ -10,4 +10,4 @@ we created users 233001-233010. ANY USER WITH CODE LESS THAN 233000 OR GREATER T
 select count(u_id) from transfers where u_id < 233000 or u_id >233010 and send_amount_currency  = 'CFA' 
 
 COMMENT
-This Query gives the number different users listed
+This Query gives the number different users listed 
