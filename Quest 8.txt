@@ -1,0 +1,11 @@
+Query
+alter table wallets rename column ledger_location to country
+
+Query
+select * from transfers 
+join wallets on transfers.dest_wallet_id = wallets.wallet_id
+
+Query
+select transfers.send_amount_scalar, transfers.when_created > now()- interval '1 WEEK', transfers.kind,  wallets.country, 
+from transfers 
+join wallets on transfers.dest_wallet_id = wallets.wallet_id

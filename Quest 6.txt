@@ -1,0 +1,16 @@
+QUERY
+select * from agent_transactions 
+join agents on agent_transactions.agent_id = agents.agent_id
+
+COMMENT
+This query joins the 'agent_transactions' table and the 'agents' table
+
+QUERY
+select agent_transactions.atx_id, agent_transactions.when_created > now()-interval ' 1 week ' now, agents.city
+from agent_transactions 
+join agents on agent_transactions.agent_id = agents.agent_id
+
+
+COMMENT
+This query shows the “atx volume city summary” table, with data of the volume of agent transactions created
+in the last week, grouped by city

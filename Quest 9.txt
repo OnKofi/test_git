@@ -1,0 +1,5 @@
+QUERY
+select transfers.transfers_id, transfers.u_id <233000 or u_id >233011, group by transfers.kind, wallets.country
+from transfers 
+join wallets on transfers.dest_wallet_id = wallets.wallet_id
+

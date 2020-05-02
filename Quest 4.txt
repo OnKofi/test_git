@@ -1,0 +1,6 @@
+select atx_id, when_created from agent_transactions where when_created between '2018-01-01' and '2018-12-31' order by when_created asc 
+
+
+
+select count(atx_id) from agent_transactions where when_created between '2018-01-01' and '2018-12-31'
+

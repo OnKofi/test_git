@@ -1,0 +1,6 @@
+select u_id from users
+**This Query list the number of wave users **
+
+
+select count(u_id) from users
+** This Query gives the number users listed.**

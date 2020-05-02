@@ -1,0 +1,3 @@
+select agent_transactions.atx_id, agents.country, agents.city
+from agent_transactions 
+join agents on agent_transactions.agent_id = agents.agent_id
