@@ -1,13 +1,1 @@
-QUERY
-select u_id from transfers where u_id < 233000 or u_id >233011 and send_amount_currency  = 'CFA' 
-
-COMMENT
-*This Query list the number of different users. That is users who made transaction in CFA but are not Wave users.
-
-Account of wave users were created with the u_id code 233***. Because we had 10 users in our database,
-we created users 233001-233010. ANY USER WITH CODE LESS THAN 233000 OR GREATER THAN 233010 WAS A DIFFERENT USER
-
-select count(u_id) from transfers where u_id < 233000 or u_id >233010 and send_amount_currency  = 'CFA' 
-
-COMMENT
-This Query gives the number different users listed 
+select distinct count(u_id) from transfers where send_amount_currency  = 'CFA'
