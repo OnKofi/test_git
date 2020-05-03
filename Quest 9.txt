@@ -1,5 +1,5 @@
 QUERY
-select transfers.transfers_id, transfers.u_id <233000 or u_id >233011, group by transfers.kind, wallets.country
-from transfers 
-join wallets on transfers.dest_wallet_id = wallets.wallet_id
+select atx_id, kind, country from agent_transactions 
+join agents on agent_transactions.agent_id = agents.agent_id 
+join transfers on agent_transactions.u_id = transfers.u_id 
 
