@@ -1,11 +1,4 @@
-Query
-alter table wallets rename column ledger_location to country
-
-Query
-select * from transfers 
-join wallets on transfers.dest_wallet_id = wallets.wallet_id
-
-Query
-select transfers.send_amount_scalar, transfers.when_created > now()- interval '1 WEEK', transfers.kind,  wallets.country, 
-from transfers 
-join wallets on transfers.dest_wallet_id = wallets.wallet_id
+select sum(send_amount_scalar) as send_volum, wallets.country, transfers.kind
+from wavetransfers, wallets 
+where  (transfers.when_created = DATE_TRUNC ('week', CURRENT_TIMESTAMP - interval '1 week'))
+group by kind, country 

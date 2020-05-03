@@ -1,5 +1,6 @@
 QUERY
-select atx_id, kind, country from agent_transactions 
-join agents on agent_transactions.agent_id = agents.agent_id 
-join transfers on agent_transactions.u_id = transfers.u_id 
-
+select sum(send_amount_scalar) as send_volume, wallets.ledger_location, transfers.kind,
+count (distinct transfers.u_id) as unique_sender, count (transfers.transfer_id) as transaction_count
+from transfers, wallets
+where  (transfers.when_created = date_trunc ('week', current_timestamp - interval '1 week'))
+group by kind, ledger_location, u_id, transfer_id
